@@ -40,9 +40,19 @@ public class Reserva {
 		return TimeUnit.DAYS.convert(diferenca, TimeUnit.MILLISECONDS);
 	}
 	
-	public void atualizacaoDatas(Date checkIn, Date checkOut) {
+	public String atualizacaoDatas(Date checkIn, Date checkOut) {
+		
+		Date now = new Date();
+		if(checkIn.before(now) || (checkOut.before(now))) {
+			return "ERRO: VERIFICAR DATAS DE ENTRADA E SAIDA";
+		} 
+		if (!checkOut.after(checkIn)) {
+			return "ERRO: VERIFICAR DATAS DE ENTRADA E SAIDA";
+		} 
+		
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
+		return null;
 	}
 	
 	@Override

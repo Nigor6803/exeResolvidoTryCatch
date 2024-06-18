@@ -23,8 +23,7 @@ public class Progama {
 
 		if (!checkOut.after(checkIn)) {
 			System.out.println("ERRO: VERIFICAR DATAS DE ENTRADA E SAIDA");
-		} 
-		else {
+		} else {
 			Reserva reserva = new Reserva(numero, checkIn, checkOut);
 			System.out.print(reserva);
 
@@ -35,17 +34,12 @@ public class Progama {
 			checkIn = sdf.parse(edd.next());
 			System.out.print("DIA DE SAIDA:");
 			checkOut = sdf.parse(edd.next());
-			
-			Date now = new Date();
-			if(checkIn.before(now) || (checkOut.before(now))) {
-				System.out.println("ERRO: VERIFICAR DATAS DE ENTRADA E SAIDA");
-			} 
-			else if (!checkOut.after(checkIn)) {
-				System.out.println("ERRO: VERIFICAR DATAS DE ENTRADA E SAIDA");
-			} 
-			else {
-			reserva.atualizacaoDatas(checkIn, checkOut);
-			System.out.print(reserva);
+
+			String erro = reserva.atualizacaoDatas(checkIn, checkOut);
+			if (erro != null) {
+				System.out.print("ERRO NA RESERVA :" + erro);
+			} else {
+				System.out.print(reserva);
 			}
 		}
 		edd.close();
