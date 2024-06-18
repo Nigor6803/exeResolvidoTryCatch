@@ -1,6 +1,5 @@
 package model.entidade;
 
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -56,7 +55,7 @@ public class Reserva {
 				+sdf.format(checkOut)
 				+" - "
 				+duracao()
-				+"NOITES";
+				+" NOITES";
 	}
 	
 }
